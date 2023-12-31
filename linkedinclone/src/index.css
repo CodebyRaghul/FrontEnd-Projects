@@ -1,14 +1,26 @@
+
 :root {
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
-
-  color-scheme: light dark;
   color: #212121;
-  background-color: rgba(255,255,255,0.87);
-
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  background-color: rgba(224, 224, 224);
+}
+.common-input{
+  height:20px;
+  padding: 10px;
+  color:#212121;
+  border : 1px solid #212121; 
+  border-radius: 3px;
+  background-color: white;
+  font-family: system-ui;
+  font-size:16px;
+  outline: none;
+}
+.common-input:focus {
+  outline: 1px solid  #0077b5 ;
+}
+::placeholder{
+  font-family: system-ui;
+  font-size: 16px;
 }
