@@ -84,7 +84,8 @@ body{
             left: 0;
         }
         &:after{
-            content: attr(data-content);
+            
+            content: attr(data-content); 
             position: relative;
             color: black;
             padding: 0 0.5em;
@@ -93,7 +94,7 @@ body{
             background-color: #fcfcfa;
         }
         }
-        .google-btn-container{
+        // .google-btn-container{
             //margin-left: 200px;;
             .google-btn{
                 width: 300px !important;
@@ -114,7 +115,7 @@ body{
                 font-weight: 600;
                 color:#013653;
             }
-        }
+        
         
     
     

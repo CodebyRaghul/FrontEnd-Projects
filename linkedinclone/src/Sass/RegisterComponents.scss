@@ -1,0 +1,114 @@
+body{
+    margin: 0;
+    padding: 0; 
+}
+
+.Register-Container {
+    background-color: white !important; 
+    height: 100vh;
+}
+.Register-logo{
+    margin:5px;
+    width: 40px;
+}
+.Register-Container-inner{
+    display: flex;
+    flex-direction: column;
+    justify-content:center;
+    align-items: center;
+}
+.Signup-head{
+    // text-align: center;
+    font-family: system-ui;
+    font-weight: 600;
+}   
+.Signup-Content{
+    // width:-900px;
+    margin-top: -15px;
+    font-family: system-ui;
+    font-weight: 500;
+} 
+.Register-input-field{
+    // margin-right: 193px;
+    
+}
+.input-text{
+    font-size: 14px;
+    margin-bottom:10px;
+}
+.Register-common-input{
+    // margin-left:65px;
+    // margin-top:-15px !important;
+    // gap:10px;
+    width: 417px;
+    height: 20px;
+    
+}
+.signup-btn{
+    margin-top:20px;
+    width: 250px;
+    height:50px;
+    border-radius: 30px;
+    outline:none;
+    border:none;
+    text-align: center;
+    font-size: 18px;
+    font-family:system-ui;
+    font-weight: 600;
+    color:white;
+    background-color: #117db8;
+    cursor: pointer;   
+}
+.signup-btn:hover{
+    font-size: 19px;
+    font-weight: 600;
+    background-color: #033c5b;
+}
+.Register-hr-text{
+    width:480px;
+    position: relative;
+    border:none;
+    outline:none;
+    color: black;
+    height: 1.5em;
+    line-height: 1em;
+    opacity: 1;
+    text-align: center;
+    &:before {
+        content:"";
+        position: absolute;
+        background: linear-gradient(to right,transparent,black,transparent);
+        color:#212121;
+        height: 1px;
+        width: 100%;
+        top: 50%;
+        left: 0;
+    }
+    &:after {
+        content: attr(register-content);
+        position: relative;
+        background-color: white;
+        line-height: 1.5em;
+        padding: 0 0.5em;
+        color: black;
+    }
+}
+.Register-google-btn{
+    border-radius:2px !important;
+}
+.go-to-signin{
+    margin-top: 10px;
+    font-family: system-ui;
+    font-size: 14px;
+    // font-weight: 400;
+}
+.signin{
+    color: #0d6594;
+    // font-weight:500;
+}
+.signin:hover{
+    cursor:pointer;
+    font-size: 20px;
+    font-weight: 600;
+    color: #327193;
+}
