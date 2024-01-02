@@ -10,9 +10,11 @@ export default function RegisterComponents() {
   let naviGate = useNavigate();
 
   const[ credentails, setCretential ] = useState({});
+
   const register =async () =>{
     try{
       let res =await RegisterAPI(credentails.email, credentails.password);
+      naviGate("/Home");
       toast.success("Account Created..!");
     }
     catch(err){
@@ -50,7 +52,7 @@ export default function RegisterComponents() {
             className="Register-common-input"  //.common-input in css file
             // placeholder="Email or Phone" // ::placeholder in css file
           />
-          <p className="input-text">Password ( 6 or more character )</p>    
+          <p className="input-text">Create Password ( 6 or more character )</p>    
           <input 
             onChange={(event)=> 
               setCretential( {...credentails, password: event.target.value })
@@ -70,7 +72,7 @@ export default function RegisterComponents() {
           <GoogleButton onclick={googlesignin}
               className="Register-google-btn" />
 
-            <p className="go-to-signin"> New to Linkedin? 
+            <p className="go-to-signin"> Already On Linkedin? {" "} 
               <span className="signin" onClick={ ()=> naviGate("/") } >Sign In</span></p>
       
       </div>

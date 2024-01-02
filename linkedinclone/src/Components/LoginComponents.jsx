@@ -13,6 +13,7 @@ export default function LoginComponents() {
   const login =async () =>{
     try{
       let res =await LoginAPI(credentails.email, credentails.password);
+      naviGate("/Home");
       toast.success("Sign In LinkedIn.!");
     }
     catch(err){
@@ -70,7 +71,7 @@ export default function LoginComponents() {
           <GoogleButton onclick={googlesignin}
               className="google-btn" />
 
-            <p className="go-to-signup"> New to Linkedin? 
+            <p className="go-to-signup">New to Linkedin? 
               <span className="join-now" onClick={ ()=> naviGate("/Register") } >Join Now</span></p>
         </div> 
 
