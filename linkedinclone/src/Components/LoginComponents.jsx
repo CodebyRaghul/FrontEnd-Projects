@@ -38,7 +38,7 @@ export default function LoginComponents() {
 
       <div className="content">
         <h1 className="Signin-head">Sign In</h1>
-        <p class="sub-head"> Stay updated on your profossional world.</p>
+        <p class="sub-head"> Stay updated on your professional world.</p>
       </div>
 
       <div className='login-Container-inner'>  

@@ -2,10 +2,12 @@ import React from 'react';
 import { Button, Modal } from 'antd';
 import "./index.scss";
 
- const ModalComponents = (
+const ModalComponents = (
     { modalOpen,
       setModalOpen,
-      status,setStatus,
+      status,
+      setStatus,
+      sendstatus,
         }) => {
   
   return (
@@ -17,7 +19,9 @@ import "./index.scss";
         onOk={() => setModalOpen(false)}
         onCancel={() => setModalOpen(false)}
         footer={[
-          <Button key="submit" type="primary" 
+          <Button key="submit" 
+            onClick={sendstatus}
+            type="primary" 
             disabled={ 
               status.length > 0 ? false:true}  >
             Submit
