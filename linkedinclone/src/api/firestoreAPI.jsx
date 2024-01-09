@@ -1,12 +1,13 @@
 import {db} from "../firebaseConfig"
 import { addDoc, collection, onSnapshot } from "firebase/firestore"
 import {toast} from "react-toastify";
+// import { getCurrentTimeStamp } from "../helpers/useMoment";
 
 let dbRef = collection(db,"posts");
 export const PoststatusAPI =(status)=>{
-
     let object ={
         status:status,
+        // date:getCurrentTimeStamp(),
     }
     addDoc( dbRef, {object} )
     .then( (res)=> {
@@ -17,6 +18,7 @@ export const PoststatusAPI =(status)=>{
         console.log(err);
         toast.error("Failed"); 
     })
+    // console.log(getCurrentTimeStamp());
 
 };
 export const GetStatus = (setAllstatus)=>{

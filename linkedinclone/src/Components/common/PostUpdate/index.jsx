@@ -2,13 +2,18 @@ import React,{useMemo, useState }from 'react'
 import ModalComponents from "../Modal"
 import "./index.scss"
 import {PoststatusAPI,GetStatus} from '../../../api/firestoreAPI';
- 
+import PostCard from '../PostCard'; 
+// import { getCurrentTime } from '../../../helpers/useMoment';
+
 export default function PostStatus() {
     const [modalOpen, setModalOpen] = useState(false);
     const [status, setStatus] = useState("");
     const [Allstatus, setAllstatus] = useState([]);
-    const sendstatus = ()=>{
-        PoststatusAPI(status);
+    
+    const sendstatus = async()=>{
+        await PoststatusAPI(status);
+        await setModalOpen(false);
+        await setStatus("");
     }
     useMemo(()=>{
         GetStatus(setAllstatus);
@@ -32,12 +37,9 @@ export default function PostStatus() {
             sendstatus={sendstatus}
             /> 
         <div>
-            {Allstatus.map((posts)=>{
-                return (
-                    <>
-                    <p> {posts.id}</p>
-                    </>
-                );
+            {Allstatus.map((post)=>{
+                // const myobj = ; 
+                return ( <PostCard post={post}/> );
             })}
             
         </div>      
