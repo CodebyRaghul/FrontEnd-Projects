@@ -3,15 +3,21 @@ import ModalComponents from "../Modal"
 import "./index.scss"
 import {PoststatusAPI,GetStatus} from '../../../api/firestoreAPI';
 import PostCard from '../PostCard'; 
-// import { getCurrentTime } from '../../../helpers/useMoment';
+import { getCurrentTimeStamp } from '../../../helpers/useMoment';
 
 export default function PostStatus() {
+    let userEmail = localStorage.getItem("userEmail");
     const [modalOpen, setModalOpen] = useState(false);
     const [status, setStatus] = useState("");
     const [Allstatus, setAllstatus] = useState([]);
     
     const sendstatus = async()=>{
-        await PoststatusAPI(status);
+        let object ={
+            status:status,
+            date:getCurrentTimeStamp(), 
+            userEmail:userEmail,
+        }
+        await PoststatusAPI(object);
         await setModalOpen(false);
         await setStatus("");
     }

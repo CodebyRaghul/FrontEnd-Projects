@@ -3,9 +3,11 @@ import "./index.scss";
 export default function PostCard({post}) {
   return (
     <div className='post-card'>
+
+      <p className='date-time'>{post.object.date}</p>
+      
       <p className='status'>
-        { JSON.stringify(post.object.status)
-            .replaceAll("\"","")    }
+        {post.object.status}
       </p>
         
     </div>

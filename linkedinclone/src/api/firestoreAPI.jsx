@@ -4,11 +4,8 @@ import {toast} from "react-toastify";
 // import { getCurrentTimeStamp } from "../helpers/useMoment";
 
 let dbRef = collection(db,"posts");
-export const PoststatusAPI =(status)=>{
-    let object ={
-        status:status,
-        // date:getCurrentTimeStamp(),
-    }
+export const PoststatusAPI =(object)=>{
+    
     addDoc( dbRef, {object} )
     .then( (res)=> {
         console.log(res);

@@ -15,6 +15,7 @@ export default function LoginComponents() {
       let res =await LoginAPI(credentails.email, credentails.password);
       naviGate("/Home");
       toast.success("Sign In LinkedIn.!");
+      localStorage.setItem("userEmail", res.user.email);
     }
     catch(err){
       console.log(err.error);
