@@ -3,9 +3,9 @@ import { useNavigate } from 'react-router-dom';
 import HomeComponents from '../Components/HomeComponents'
 import { onAuthStateChanged } from "firebase/auth";
 import { auth } from '../firebaseConfig';
-import Loader from '../Components/common/Loader';
+import Loader from '../Components/common/Loader'; 
 
-export default function Home() {
+export default function Home({currentUser}) {
   const [loading, setloading] = useState(true);
   let navigate = useNavigate();
     useEffect( ()=>{
@@ -21,5 +21,5 @@ export default function Home() {
       ,[]); 
 
 
-  return (loading? <Loader/> : <HomeComponents/> );
+  return (loading? <Loader/> : <HomeComponents currentUser={currentUser}/> );
 }

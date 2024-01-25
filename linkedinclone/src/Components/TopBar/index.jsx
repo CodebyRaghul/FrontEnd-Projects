@@ -26,7 +26,7 @@ export default function TopBar() {
           <div className="popup-position">
             <ProfilePopUp/>
           </div>
-        ): (
+        ):(
           <></>
         )
       }

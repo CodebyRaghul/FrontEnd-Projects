@@ -1,6 +1,7 @@
 import React, { useState } from "react"
 import "../Sass/RegisterComponents.scss"
 import { RegisterAPI, GoogleAPI} from '../api/AuthAPI'
+import { postUserData } from "../api/firestoreAPI"
 import linkedinlogo from '../assets/linkedin.png'
 import GoogleButton from 'react-google-button';
 import { toast } from "react-toastify";
@@ -15,6 +16,7 @@ export default function RegisterComponents() {
     try{
       let res =await RegisterAPI(credentails.email, credentails.password);
       naviGate("/Home");
+      postUserData({name:credentails.name,email:credentails.email});
       toast.success("Account Created..!");
       localStorage.setItem("userEmail", res.user.email);
     }
@@ -44,6 +46,15 @@ export default function RegisterComponents() {
         <h2 className="Signup-Content"> Make the most of your professional life</h2>
 
         <div className="Register-input-field">
+        <p className="input-text">Your Name</p>
+          <input 
+            onChange={(event)=> 
+              setCretential( {...credentails, name: event.target.value })
+            }
+            type="text"
+            className="Register-common-input"  //.common-input in css file
+            // placeholder="Email or Phone" // ::placeholder in css file
+          />
           <p className="input-text">Email or Phone Number</p>
           <input 
             onChange={(event)=> 

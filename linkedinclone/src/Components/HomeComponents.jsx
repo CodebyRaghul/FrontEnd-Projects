@@ -1,9 +1,9 @@
 import React from 'react'
 import PostStatus from './common/PostUpdate'
-export default function HomeComponents() {
+export default function HomeComponents({currentUser}) {
   return (
     <div>
-        <PostStatus />
+        <PostStatus currentUser={currentUser}/>
     </div>
   )
 }
