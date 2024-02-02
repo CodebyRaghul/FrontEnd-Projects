@@ -32,19 +32,21 @@ export const postUserData = (object)=>{
     addDoc( userRef, {object} )
     .then( ()=> {})
     .catch((err)=> {
+        toast.error("Adding a data Failed");
         console.log(err);   
     })
 
 };
-export const getCurrentUser = (setcurrentUser) => {
+export const getCurrentUser = ({setcurrentUser}) => {
     onSnapshot(userRef, (response) => {
         setcurrentUser(
         response.docs
           .map((docs) => {
             return { ...docs.data(), id: docs.id };
           })
+        //   === localStorage.getItem("userEmail")
           .filter((item) => {
-            return item.email === localStorage.getItem("userEmail");
+            return item.object.email === localStorage.getItem("userEmail");
           })[0]
       );
     });

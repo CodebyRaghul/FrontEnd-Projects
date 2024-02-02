@@ -4,6 +4,8 @@ export default function PostCard({post}) {
   return (
     <div className='post-card'>
 
+      <p className='name'>{post.object.userName}</p>
+
       <p className='date-time'>{post.object.date}</p>
       
       <p className='status'>

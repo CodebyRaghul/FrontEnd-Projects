@@ -3,6 +3,7 @@ import Login from "../Pages/Login";
 import Register from "../Pages/Register";
 // import Home from "../Pages/Home";
 import HomeLayout from "../Layout/HomeLayout";
+import ProfileLayout from "../Layout/ProfileLayout"
 
 //export key is more important. never forget this.
 export const router = createBrowserRouter([
@@ -17,6 +18,10 @@ export const router = createBrowserRouter([
     {
       path: "/Home",
       element: <div> <HomeLayout /> </div>,
+    },
+    {
+      path: "/Profile",
+      element: <div> <ProfileLayout /> </div>,
     },
 
   ]);

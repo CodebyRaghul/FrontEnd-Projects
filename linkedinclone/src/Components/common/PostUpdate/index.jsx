@@ -1,22 +1,24 @@
 import React,{useMemo, useState }from 'react'
 import ModalComponents from "../Modal"
 import "./index.scss"
+import { getuniqueId } from '../../../helpers/uniqueId';
 import {PoststatusAPI,GetStatus} from '../../../api/firestoreAPI';
 import PostCard from '../PostCard'; 
 import { getCurrentTimeStamp } from '../../../helpers/useMoment';
 
 export default function PostStatus({currentUser}) {
-    let userEmail = localStorage.getItem("userEmail");
+    // let userEmail = localStorage.getItem("userEmail");
     const [modalOpen, setModalOpen] = useState(false);
     const [status, setStatus] = useState("");
     const [Allstatus, setAllstatus] = useState([]);
-    
+    // console.log(currentUser.object.name)
     const sendstatus = async()=>{
         let object ={
             status:status,
             date:getCurrentTimeStamp(), 
-            userEmail:userEmail,
-            userName:currentUser.name,
+            userEmail:currentUser.object.email,
+            userName: currentUser.object.name,
+            postId: getuniqueId(),
         }
         await PoststatusAPI(object);
         await setModalOpen(false);
@@ -25,7 +27,7 @@ export default function PostStatus({currentUser}) {
     useMemo(()=>{
         GetStatus(setAllstatus);
     },[])
-    console.log(Allstatus);
+    // console.log(Allstatus);
     return (
     <div className='post-status-main'> 
         <div className='post-status'>
