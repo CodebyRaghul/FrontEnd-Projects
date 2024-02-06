@@ -5,7 +5,7 @@ import { onAuthStateChanged } from "firebase/auth";
 import { auth } from '../firebaseConfig';
 import Loader from '../Components/common/Loader'; 
 
-export default function Home({currentUser}) {
+export default function Profile({currentUser}) {
 
   const [loading, setloading] = useState(true);
 
@@ -22,7 +22,7 @@ export default function Home({currentUser}) {
     }
       ,[]); 
 
-
+    // console.log(currentUser.object.name)
   return (loading? <Loader/> : <ProfileComponents currentUser={currentUser}/> );
 }
 
