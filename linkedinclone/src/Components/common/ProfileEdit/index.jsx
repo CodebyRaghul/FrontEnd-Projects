@@ -1,7 +1,8 @@
 import React, { useState } from 'react'
+import { editprofile } from '../../../api/firestoreAPI';
 import './index.scss'
 
-export default function ProfileEdit({ OnEdit}) {
+export default function ProfileEdit({ currentUser,OnEdit}) {
   const [EditInput , setEditInput ] = useState({});
 
   const getInput= (event)=>{
@@ -9,7 +10,11 @@ export default function ProfileEdit({ OnEdit}) {
     let input = { [name]: value};
     setEditInput(...EditInput , ...input);
   }
-  // console.log(EditInput)
+  console.log(EditInput)
+
+  const profiledata = ()=>{
+    editprofile(currentUser.id,EditInput);
+  }
   return (
     <div className='Profile-card'>
       <div className='edit-btn-container'>
@@ -27,27 +32,27 @@ export default function ProfileEdit({ OnEdit}) {
           onChange={getInput} 
           className='common-input' 
           placeholder='headline'
-          name='name'  />
+          name='headline'  />
         <input 
           onChange={getInput}
           className='common-input' 
           placeholder='location'
-          name='name'  />
+          name='location'  />
         <input 
           onChange={getInput}
           className='common-input' 
           placeholder='campany'
-          name='name' />
+          name='campany' />
         <input 
           onChange={getInput}
           className='common-input' 
           placeholder='collage'
-          name='name' />
+          name='collage' />
 
       </div>
 
       <div className='save-btn-container'>
-        <button className="sign-btn"> Save </button>
+        <button className="sign-btn" onClick={profiledata}> Save </button>
       </div>
 
     </div>

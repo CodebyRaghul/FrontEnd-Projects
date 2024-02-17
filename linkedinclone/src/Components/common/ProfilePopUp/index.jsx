@@ -7,11 +7,11 @@ export default function ProfilePopUp() {
   let navi = useNavigate()
   return (
     <div className='popup-card'>
-      {/* <ul className='popup-option'>
+      <ul className='popup-option'>
           <li className='popup-option' onClick={()=>{
             navi('/Profile')
           }}> Profile</li>
-      </ul> */}
+      </ul>
 
       <ul className='popup-option'>
           <li className='popup-option' onClick={onLogOut}> LogOut</li>
