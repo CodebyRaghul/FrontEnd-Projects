@@ -1,18 +1,28 @@
 .popup-card {
     border: 1px solid #a8a8a8;
-    width: 100px;
-    height: auto;
+    width: 150px;
+    height: 100px;
     background-color: whitesmoke;
     border-radius: 5px;
     display: flex;
     justify-content: center;
   
     flex-direction: column;
-    padding: 20px;
-    // margin-left: 50px;
+    // padding-left: 10px;
+    // margin-right: 10px;
     // text-align:left;
    
     .popup-option {
       cursor: pointer;
+      font-family : sans-serif; 
+      font-size: 14px;
+    }
+    .popup-option:hover{
+      color: rgb(118, 118, 227);
+      font-size: 16px ;
+      text-decoration-line: underline;
+    }
+    .LogOut{
+      margin-top: -5px;
     }
   }

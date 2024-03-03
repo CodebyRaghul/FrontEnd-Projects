@@ -1,16 +1,49 @@
 .Profile-card{
-    width:auto;
-    height: 50vh;
+    width: auto;
+    height: auto;
     background-color: whitesmoke;
-    margin: 30px;
+    color: white;
+    margin: 40px;
     padding: 10px;
     border-radius: 10px;
     position: relative;
+    .Profile-info{
+        display: flex;
+        justify-content: space-between;
+    }
     .userName{
         font-family: system-ui;
         font-weight: 600;
         color:rgba(0,0,0,0.9);
-        font-size: 22px;
+        font-size: 22px;  
+    } 
+    .left{
+        font-family: system-ui;
+        font-size: 14px;
+        // margin-top: -20px;
+        color:rgba(0,0,0,0.9);
+        font-weight: 600;
+        width: 200px;
+    }
+    .heading{
+        margin-top: -20px;
+        width: 200px;
+    }
+    .right-info{
+        margin-top: 42px;
+        margin-right: 10px;
+        width: 200px;
+        .company,
+        .collage {
+            font-family: system-ui;
+            font-size: 13px;
+            color:rgba(0,0,0,0.9);
+            font-weight: 600;
+            line-height: 20px;
+        }
+        .collage{
+            margin-top: -9px;
+        }
     }
     .edit-btn-container{
         position: absolute;
@@ -19,4 +52,8 @@
     .edit-btn{
         cursor: pointer;
     }
+    .posts{
+        color: whitesmoke; 
+    }
+    
 }

@@ -13,7 +13,7 @@ export default function ProfileEdit({ currentUser,OnEdit}) {
   console.log(EditInput)
 
   const profiledata = ()=>{
-    editprofile(currentUser.id,EditInput);
+  editprofile(currentUser.id,EditInput);
   }
   return (
     <div className='Profile-card'>
