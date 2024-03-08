@@ -49,7 +49,7 @@ export const getCurrentUser = ({setcurrentUser}) => {
             return item.object.email === localStorage.getItem("userEmail");
           })[0]
       );
-    });
+    }); 
   };
   export const editprofile = (userid,payload)=>{
     let usertoedit = doc(userRef,userid)

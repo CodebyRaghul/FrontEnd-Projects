@@ -1,25 +1,37 @@
-.Profile-card{
+.Profile-info{
     width: auto;
     height: auto;
     background-color: whitesmoke;
-    color: white;
-    margin: 40px;
-    padding: 10px;
+    margin: 25px;
+    padding: 5px;
     border-radius: 10px;
     position: relative;
-    .Profile-info{
+    .edit-btn-container{
+        margin-top: 5px;
+        position: absolute;
+        right: 20px;
+        // z-index: 99;
+        .edit-btn{
+            cursor: pointer;
+        }
+    }
+    .Profile{
         display: flex;
         justify-content: space-between;
+        // background-color: black;
+        margin-left: 25px;
     }
     .userName{
         font-family: system-ui;
         font-weight: 600;
         color:rgba(0,0,0,0.9);
         font-size: 22px;  
+        // background-color: black;
     } 
     .left{
         font-family: system-ui;
         font-size: 14px;
+        // background-color: black;
         // margin-top: -20px;
         color:rgba(0,0,0,0.9);
         font-weight: 600;
@@ -30,8 +42,10 @@
         width: 200px;
     }
     .right-info{
-        margin-top: 42px;
-        margin-right: 10px;
+        margin: auto;
+        // background-color: black;
+        // margin-top: 25px;
+        // margin-left: 30px;
         width: 200px;
         .company,
         .collage {
@@ -40,20 +54,17 @@
             color:rgba(0,0,0,0.9);
             font-weight: 600;
             line-height: 20px;
+            // z-index: 99;
         }
         .collage{
             margin-top: -9px;
         }
     }
-    .edit-btn-container{
-        position: absolute;
-        right: 20px;
-    }
-    .edit-btn{
-        cursor: pointer;
-    }
-    .posts{
-        color: whitesmoke; 
-    }
+
+}
+.posts-main{
+    // background-color: whitesmoke; 
+    margin-left: 25px;
     
+    // width: 100px;
 }

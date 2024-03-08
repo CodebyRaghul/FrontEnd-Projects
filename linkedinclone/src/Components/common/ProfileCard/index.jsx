@@ -9,16 +9,19 @@ export default function ProfileCard({currentUser, OnEdit}) {
 
   useMemo(()=>{
     GetStatus(setAllstatus);
-    },[])
+},[])
   // console.log(currentUser.object.name)
+  // Allstatus.map((post)=>{
+  //   console.log(post)
+  // })
   return (
-
-    <div className='Profile-card'>    
+    <>
+    <div className='Profile-info'>    
       <div className='edit-btn-container'>
         <button onClick={OnEdit} className='edit-btn'> Edit </button>
       </div>
 
-      <div className='Profile-info'>
+      <div className='Profile'>
         <div className='left'>
           <h3 className='userName'> {currentUser.object.name}</h3>
           <p className='heading'>Software Engineer | Content Creator | Nutrietion</p>
@@ -32,12 +35,20 @@ export default function ProfileCard({currentUser, OnEdit}) {
           <p></p>
         </div> 
       </div>
-      <div className='posts'>
-        {Allstatus.map((post)=>{
-                // const myobj = ; 
-        return ( <PostCard post={post}/> );
-          })}    
-        </div>
     </div>
+    
+      <div className='posts-main'>
+        <div className='posts'>
+
+        {Allstatus.filter((item)=>{
+          return item.object.userEmail === localStorage.getItem('userEmail')
+            }).map((post)=>{
+            // const myobj = ; 
+          return ( <PostCard  post={post}/> );
+            })} 
+          </div>   
+        </div>
+
+    </>
   )
 };
