@@ -11,8 +11,9 @@ export default function ProfileComponents({currentUser}) {
     <div>
         { 
         
-        isEdit? (<ProfileEdit currentUser={currentUser} OnEdit={OnEdit}/> ) :
-         ( <ProfileCard currentUser={currentUser} OnEdit={OnEdit}/>)
+        isEdit? ( <ProfileCard currentUser={currentUser} OnEdit={OnEdit}/>) :
+            (<ProfileEdit currentUser={currentUser} OnEdit={OnEdit}/> )
+        //  ( <ProfileCard currentUser={currentUser} OnEdit={OnEdit}/>)
           
           }
     </div>

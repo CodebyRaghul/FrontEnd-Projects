@@ -14,6 +14,8 @@ export default function RegisterComponents() {
 
   const register =async () =>{
     try{
+      // postUserData({name:credentails.name,email:credentails.email});
+      // toast.success("Account Created..!");
       let res =await RegisterAPI(credentails.email, credentails.password);
       naviGate("/Home");
       postUserData({name:credentails.name,email:credentails.email});
@@ -35,6 +37,7 @@ export default function RegisterComponents() {
       toast.error("Google SignIn Failed.!!!");
     }
   }
+  console.log(credentails)
 
   return (
     <div className='Register-Container'>    

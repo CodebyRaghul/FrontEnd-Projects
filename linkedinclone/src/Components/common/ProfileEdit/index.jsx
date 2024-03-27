@@ -5,15 +5,18 @@ import './index.scss'
 export default function ProfileEdit({ currentUser,OnEdit}) {
   const [EditInput , setEditInput ] = useState({});
 
-  const getInput= (event)=>{
-    let { name , value } = event.target;
-    let input = { [name]: value};
-    setEditInput(...EditInput , ...input);
-  }
+  // const getInput= (event)=>{ 
+  //   // let { name , value } = event.target;
+  //   // console.log(name,value)
+  //   // let input = { [name]: value };
+  //   // setEditInput(...EditInput,...{input})
+  //   // console.log(...EditInput, [name], value);
+  // }
   console.log(EditInput)
 
   const profiledata = ()=>{
-  editprofile(currentUser.id,EditInput);
+    editprofile(currentUser?.id,EditInput)
+    // editprofile(currentUser.id,EditInput);
   }
   return (
     <div className='Profile-card'>
@@ -24,27 +27,37 @@ export default function ProfileEdit({ currentUser,OnEdit}) {
       <div className='input-container'>
 
         <input 
-          onChange={getInput}
+          onChange={(event)=> 
+            setEditInput( {...EditInput, name: event.target.value })
+          }
           className='common-input' 
           placeholder='name'
           name='name'  />
         <input
-          onChange={getInput} 
+          onChange={(event)=> 
+            setEditInput( {...EditInput, headline: event.target.value })
+          }
           className='common-input' 
           placeholder='headline'
           name='headline'  />
         <input 
-          onChange={getInput}
+          onChange={(event)=> 
+            setEditInput( {...EditInput, location: event.target.value })
+          }
           className='common-input' 
           placeholder='location'
           name='location'  />
         <input 
-          onChange={getInput}
+          onChange={(event)=> 
+            setEditInput( {...EditInput, company: event.target.value })
+          }
           className='common-input' 
-          placeholder='campany'
-          name='campany' />
+          placeholder='company'
+          name='company' />
         <input 
-          onChange={getInput}
+          onChange={(event)=> 
+            setEditInput( {...EditInput, collage: event.target.value })
+          }
           className='common-input' 
           placeholder='collage'
           name='collage' />

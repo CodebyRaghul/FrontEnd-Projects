@@ -40,8 +40,7 @@ export const postUserData = (object)=>{
 export const getCurrentUser = ({setcurrentUser}) => {
     onSnapshot(userRef, (response) => {
         setcurrentUser(
-        response.docs
-          .map((docs) => {
+        response.docs.map((docs) => {
             return { ...docs.data(), id: docs.id };
           })
         //   === localStorage.getItem("userEmail")
@@ -52,14 +51,16 @@ export const getCurrentUser = ({setcurrentUser}) => {
     }); 
   };
   export const editprofile = (userid,payload)=>{
+    // console.log(userid)
     let usertoedit = doc(userRef,userid)
+
     updateDoc(usertoedit,payload)
     .then( ()=> {
       toast.success("Document has been updated succesfully");
     })
     .catch((err)=> {
         toast.error("Adding a data Failed");
-        console.log(err);   
+        console.log(err);    
     })
   }
 // export default PoststatusAPI;

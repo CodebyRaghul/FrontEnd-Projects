@@ -9,7 +9,7 @@ export default function ProfileCard({currentUser, OnEdit}) {
 
   useMemo(()=>{
     GetStatus(setAllstatus);
-},[])
+      },[])
   // console.log(currentUser.object.name)
   // Allstatus.map((post)=>{
   //   console.log(post)
@@ -23,16 +23,19 @@ export default function ProfileCard({currentUser, OnEdit}) {
 
       <div className='Profile'>
         <div className='left'>
-          <h3 className='userName'> {currentUser.object.name}</h3>
-          <p className='heading'>Software Engineer | Content Creator | Nutrietion</p>
-          <p>Tamilnadu</p>
+          <h3 className='userName'> {currentUser.name}</h3>
+          <p className='heading'>{currentUser.headline}</p> 
+          {/* Software Engineer | Content Creator | Nutrietion */}
+          <p>{currentUser.location}</p>
+          {/* Tamilnadu */}
         </div>
           {/* <h3> D.Raghul</h3> */}
         <div className='right-info'>
-          <p className='company'>Tata Consultancy and services</p>
-          <p className='collage'>Anna University, tiruchirapalli</p>
+          <p className='company'>{currentUser.company}</p> 
+          {/* Tata Consultancy and services */}
+          <p className='collage'>{currentUser.collage}</p>
+          {/* Anna University, tiruchirapalli */}
           
-          <p></p>
         </div> 
       </div>
     </div>
@@ -48,6 +51,12 @@ export default function ProfileCard({currentUser, OnEdit}) {
             })} 
           </div>   
         </div>
+        {/* <div>
+          <p>{currentUser.object.name}</p>
+          <p>{currentUser.object.name}</p>
+          <p>{currentUser.object.name}</p>
+          <p>{currentUser.object.name}</p>
+        </div> */}
 
     </>
   )
