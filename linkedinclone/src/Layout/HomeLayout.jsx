@@ -4,10 +4,11 @@ import TopBar from '../Components/TopBar'
 import { getCurrentUser } from '../api/firestoreAPI'
 export default function HomeLayout() {
   const [ currentUser, setcurrentUser] = useState({});
-  // console.log(currentUser.object.name)
+  
   useMemo(()=>{
     getCurrentUser({setcurrentUser});
   },[])
+ 
   
   return (
     <div> 

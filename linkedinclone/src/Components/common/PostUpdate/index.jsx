@@ -11,11 +11,12 @@ export default function PostStatus({currentUser}) {
     const [modalOpen, setModalOpen] = useState(false);
     const [status, setStatus] = useState("");
     const [Allstatus, setAllstatus] = useState([]);
-    // console.log(currentUser.object.name)
+    // console.log(currentUser.object.useID)
     const sendstatus = async()=>{
         let object ={
             status:status,
             date:getCurrentTimeStamp(), 
+            userID: currentUser.object.useID,
             userEmail:currentUser.object.email,
             userName: currentUser.object.name,
             postId: getuniqueId(),

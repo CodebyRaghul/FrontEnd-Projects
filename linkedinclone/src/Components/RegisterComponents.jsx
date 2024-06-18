@@ -6,6 +6,7 @@ import linkedinlogo from '../assets/linkedin.png'
 import GoogleButton from 'react-google-button';
 import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom"
+import { getuniqueId } from "../helpers/uniqueId"
 
 export default function RegisterComponents() {
   let naviGate = useNavigate();
@@ -18,7 +19,10 @@ export default function RegisterComponents() {
       // toast.success("Account Created..!");
       let res =await RegisterAPI(credentails.email, credentails.password);
       naviGate("/Home");
-      postUserData({name:credentails.name,email:credentails.email});
+      postUserData({
+        useID: getuniqueId(),
+        name:credentails.name,
+        email:credentails.email});
       toast.success("Account Created..!");
       localStorage.setItem("userEmail", res.user.email);
     }
@@ -29,7 +33,7 @@ export default function RegisterComponents() {
   }
   const googlesignin =()=>{
     try{
-      console.log(GoogleAPI());
+      GoogleAPI();
       toast.success("Google Sign In.!");
     }
     catch(err){
@@ -37,7 +41,7 @@ export default function RegisterComponents() {
       toast.error("Google SignIn Failed.!!!");
     }
   }
-  console.log(credentails)
+  // console.log(credentails)
 
   return (
     <div className='Register-Container'>    

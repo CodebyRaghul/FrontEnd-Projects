@@ -1,19 +1,28 @@
 import React from 'react'
 import {useMemo, useState }from 'react'
-import {GetStatus} from '../../../api/firestoreAPI';
 import PostCard from '../PostCard'; 
 import './index.scss'
+import { useLocation } from 'react-router-dom';
 
 export default function ProfileCard({currentUser, OnEdit}) {
+  let location = useLocation();
   const [Allstatus, setAllstatus] = useState([]);
+  const [currenProfile, setcurrentProfile] = useState({});
 
   useMemo(()=>{
-    GetStatus(setAllstatus);
-      },[])
+    
+    if(location?.state?.id) {
+      getSingleStatus(setAllstatus, location?.state?.id);
+    }
+    if(location?.state?.email){
+      getSingleUser(setcurrentProfile, location?.state?.email);
+    }
+    },[])
   // console.log(currentUser.object.name)
   // Allstatus.map((post)=>{
   //   console.log(post)
   // })
+  // console.log(currenProfile);
   return (
     <>
     <div className='Profile-info'>    
@@ -23,17 +32,36 @@ export default function ProfileCard({currentUser, OnEdit}) {
 
       <div className='Profile'>
         <div className='left'>
-          <h3 className='userName'> {currentUser.name}</h3>
-          <p className='heading'>{currentUser.headline}</p> 
+          <h3 className='userName'>
+            {Object.values(currenProfile).length===0 ? 
+             currentUser.name : 
+             currenProfile.name} </h3>
+          <p className='heading'>
+          {Object.values(currenProfile).length===0 ? 
+             currentUser.headline : 
+             currenProfile.headline}
+             </p> 
           {/* Software Engineer | Content Creator | Nutrietion */}
-          <p>{currentUser.location}</p>
+          <p>
+          {Object.values(currenProfile).length===0 ? 
+             currentUser.location : 
+             currenProfile.location}
+             </p>
           {/* Tamilnadu */}
         </div>
           {/* <h3> D.Raghul</h3> */}
         <div className='right-info'>
-          <p className='company'>{currentUser.company}</p> 
+          <p className='company'>
+          {Object.values(currenProfile).length===0 ? 
+             currentUser.company : 
+             currenProfile.company}
+             </p> 
           {/* Tata Consultancy and services */}
-          <p className='collage'>{currentUser.collage}</p>
+          <p className='collage'>
+          {Object.values(currenProfile).length===0 ? 
+             currentUser.collage : 
+             currenProfile.collage}
+             </p>
           {/* Anna University, tiruchirapalli */}
           
         </div> 
@@ -44,6 +72,7 @@ export default function ProfileCard({currentUser, OnEdit}) {
         <div className='posts'>
 
         {Allstatus.filter((item)=>{
+          // console.log(localStorage.getItem('userEmail'))
           return item.object.userEmail === localStorage.getItem('userEmail')
             }).map((post)=>{
             // const myobj = ; 

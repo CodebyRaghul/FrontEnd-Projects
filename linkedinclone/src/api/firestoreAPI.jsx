@@ -1,5 +1,12 @@
 import {db} from "../firebaseConfig"
-import { addDoc, collection, doc, onSnapshot, updateDoc } from "firebase/firestore"
+import { 
+  addDoc, 
+  collection, 
+  doc, 
+  onSnapshot, 
+  updateDoc,
+  query, 
+  where } from "firebase/firestore"
 import {toast} from "react-toastify";
 // import { getCurrentTimeStamp } from "../helpers/useMoment";
 
@@ -40,7 +47,7 @@ export const postUserData = (object)=>{
 export const getCurrentUser = ({setcurrentUser}) => {
     onSnapshot(userRef, (response) => {
         setcurrentUser(
-        response.docs.map((docs) => {
+          response.docs.map((docs) => {
             return { ...docs.data(), id: docs.id };
           })
         //   === localStorage.getItem("userEmail")
@@ -63,5 +70,25 @@ export const getCurrentUser = ({setcurrentUser}) => {
         console.log(err);    
     })
   }
+export const getSingleStatus = (setAllstatus, id)=>{
+  
+  const singlePostQuery = query(dbRef, where("userID","==",id))
+  onSnapshot(singlePostQuery, (response)=>{
+    setAllstatus(response.docs.map( (docs)=>{ 
+      return{...docs.data(), id: docs.id};
+        }));  
+      })
+    };
+
+export const getSingleUser = (setcurrentUser, email)=>{
+  const singleUserQuery = query(userRef, where("email","==",email))
+  onSnapshot(singleUserQuery, (response)=>{
+    setcurrentUser(response.docs.map( (docs)=>{ 
+      return{...docs.data(), id: docs.id};
+        })[0]
+      );  
+    })
+    };
+  
 // export default PoststatusAPI;
 // export default GetStatus;
